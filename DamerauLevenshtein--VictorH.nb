@@ -1,0 +1,378 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     11014,        369]
+NotebookOptionsPosition[      8518,        274]
+NotebookOutlinePosition[      8860,        289]
+CellTagsIndexPosition[      8817,        286]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Damerau-Levenshtein Distance\n",
+ StyleBox["Investigated by: Victor Hakim\nMarch, 2013.", "Subtitle",
+  FontWeight->"Plain"]
+}], "Title",
+ CellChangeTimes->{{3.573224413510371*^9, 3.573224425038371*^9}, {
+  3.5734170656697626`*^9, 3.573417075744763*^9}}],
+
+Cell[TextData[StyleBox["The Damerau-Levenshtein Distance is a computation \
+used in information theory and computer science. Its purpose is simpler than \
+its name. The \[OpenCurlyDoubleQuote]Distance\[CloseCurlyDoubleQuote] is the \
+smallest number of insertions, deletions, single-character substitutions or \
+adjacent transpositions to get from one string to another. The \
+Damerau-Levenshtein Distance can also be used between two vectors.", \
+"Subsubtitle"]], "Subtitle",
+ CellChangeTimes->{{3.573224474271371*^9, 3.573224503436371*^9}, {
+  3.5732249523623714`*^9, 3.573225157444371*^9}, {3.5734145632019625`*^9, 
+  3.5734145849795628`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<Conneticat\>\"", ",", "\"\<Connecticut\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.573416688226763*^9, 3.573416754734763*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{{3.5734167166907625`*^9, 3.573416757160763*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5734167623387628`*^9, 3.573416778821763*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{3.5734167793277626`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Insertion:", "Subsubtitle",
+ CellChangeTimes->{{3.5734141725095625`*^9, 3.573414179243763*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<Vctor\>\"", ",", "\"\<Victor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.5734142547981625`*^9, 3.573414281851963*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.573414284379163*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Deletion:", "Subsubtitle",
+ CellChangeTimes->{{3.573414190620163*^9, 3.573414196688563*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<Vicktor\>\"", ",", "\"\<Victor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.573414293593763*^9, 3.573414318394163*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.573414321366163*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Single-character Substitution:", "Subsubtitle",
+ CellChangeTimes->{{3.5734141482007627`*^9, 3.5734141631055627`*^9}, {
+  3.573414211350363*^9, 3.573414218757163*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<victor\>\"", ",", "\"\<Victor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.573414062217363*^9, 3.573414125257163*^9}, {
+  3.573414358198363*^9, 3.5734143596647625`*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.5734141298917627`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Adjacent Transposition:", "Subsubtitle",
+ CellChangeTimes->{{3.5734142304991627`*^9, 3.5734142379575624`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<Victro\>\"", ",", "\"\<Victor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.573414336524563*^9, 3.573414387477163*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.5734143884443626`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+All combined into one (which should just be the sum):\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.573414398896363*^9, 3.573414439008763*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<vcktro\>\"", ",", "\"\<Victor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.5734144452207627`*^9, 3.5734144894231625`*^9}}],
+
+Cell[BoxData["4"], "Output",
+ CellChangeTimes->{3.573414490577563*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Theoretically, the Damerau-Levenshtein Distance should not be greater than \
+the number of characters in the larger string (or vector) because one string \
+could simply get to another string with substitutions or insertions.\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.573414506935763*^9, 3.5734145411915627`*^9}, {
+  3.573415071863363*^9, 3.573415151785963*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<zzzzzz\>\"", ",", "\"\<Victor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.573415154032363*^9, 3.5734152229225626`*^9}}],
+
+Cell[BoxData["6"], "Output",
+ CellChangeTimes->{{3.573415174107563*^9, 3.573415223328163*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<zz\>\"", ",", "\"\<Victor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.5734151776487627`*^9, 3.5734151850079627`*^9}, {
+  3.5734152275637627`*^9, 3.5734152311247625`*^9}}],
+
+Cell[BoxData["6"], "Output",
+ CellChangeTimes->{3.5734152316311626`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<\>\"", ",", "\"\<Victor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.573415299960963*^9, 3.573415305995163*^9}}],
+
+Cell[BoxData["6"], "Output",
+ CellChangeTimes->{3.573415306416363*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Another idea about the Damerau-Levenshtein Distance is that a deletion or \
+insertion can simply be thought of as the substitution of or for a space. If \
+each string is thought of as having infinite spaces to the left and right, \
+then with these new definitions for deletion and insertion the \
+DamerauLevenshteinDistance[] function really calculates the minimum number of \
+substitutions and adjacent transpositions. Then, an adjacent transposition \
+saves an operation because it would need two subsitutions as to perform the \
+equivalent adjacent transposition.\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.5734153521675625`*^9, 3.5734154789173627`*^9}, {
+  3.5734161596717625`*^9, 3.573416293725763*^9}}],
+
+Cell[TextData[{
+ "A function that does ",
+ StyleBox["not",
+  FontSlant->"Italic"],
+ " count transpositions as one operation is EditDistance[]. It counts a \
+transposition as two substitutions:"
+}], "Subsubtitle",
+ CellChangeTimes->{{3.5734165035427628`*^9, 3.5734165452947626`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EditDistance", "[", 
+  RowBox[{"\"\<Victor\>\"", ",", "\"\<Vcitor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.5734165487377625`*^9, 3.5734165750467625`*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{3.573416575580763*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DamerauLevenshteinDistance", "[", 
+  RowBox[{"\"\<Victor\>\"", ",", "\"\<Vcitor\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.5734165487377625`*^9, 3.573416583647763*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.573416585229763*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "Subsubtitle",
+ CellChangeTimes->{3.5734168689907627`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Sources",
+ FontWeight->"Bold"]], "Subsubtitle",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.573224812465371*^9, 3.573224813485371*^9}, 
+   3.5732249451283712`*^9, 3.573416815244763*^9, {3.5734168689907627`*^9, 
+   3.573416882297763*^9}, 3.5734169959527626`*^9, 3.573417053163763*^9}],
+
+Cell["\<\
+http://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance\
+\>", "Subsubtitle",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{
+  3.5732248324703712`*^9, 3.5732249451283712`*^9, 3.573416815245763*^9, {
+   3.5734168689907627`*^9, 3.573416882297763*^9}, 3.573416995953763*^9, 
+   3.573417053163763*^9}]
+}, Closed]]
+}, Open  ]]
+}, Closed]]
+},
+WindowSize->{1008, 647},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (October 6, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 272, 6, 159, "Title"],
+Cell[854, 30, 646, 9, 78, "Subtitle"],
+Cell[CellGroupData[{
+Cell[1525, 43, 203, 3, 31, "Input"],
+Cell[1731, 48, 96, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1864, 54, 288, 7, 31, "Input"],
+Cell[2155, 63, 72, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2264, 69, 101, 1, 28, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[2390, 74, 195, 3, 31, "Input"],
+Cell[2588, 79, 70, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2707, 86, 98, 1, 28, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[2830, 91, 195, 3, 31, "Input"],
+Cell[3028, 96, 70, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3147, 103, 172, 2, 28, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[3344, 109, 245, 4, 31, "Input"],
+Cell[3592, 115, 72, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3713, 122, 116, 1, 28, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[3854, 127, 194, 3, 31, "Input"],
+Cell[4051, 132, 72, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4172, 139, 150, 3, 28, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[4347, 146, 198, 3, 31, "Input"],
+Cell[4548, 151, 70, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4667, 158, 372, 6, 47, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[5064, 168, 196, 3, 31, "Input"],
+Cell[5263, 173, 94, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5394, 179, 247, 4, 31, "Input"],
+Cell[5644, 185, 72, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5753, 191, 188, 3, 31, "Input"],
+Cell[5944, 196, 70, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6063, 203, 718, 11, 104, "Subsubtitle"],
+Cell[6784, 216, 282, 7, 29, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[7091, 227, 184, 3, 31, "Input"],
+Cell[7278, 232, 70, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7385, 238, 196, 3, 31, "Input"],
+Cell[7584, 243, 70, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7703, 250, 67, 1, 28, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[7795, 255, 338, 5, 29, "Subsubtitle",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[8136, 262, 342, 7, 28, "Subsubtitle",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Closed]]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+
+(* End of internal cache information *)

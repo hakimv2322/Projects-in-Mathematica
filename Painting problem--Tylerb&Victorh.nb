@@ -1,0 +1,1260 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     54321,       1252]
+NotebookOptionsPosition[     53635,       1225]
+NotebookOutlinePosition[     54071,       1242]
+CellTagsIndexPosition[     54028,       1239]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Art thou Optimized?\n",
+ StyleBox["Tyler Bauer & Victor Hakim. October 2012.", "Subtitle"]
+}], "Title",
+ CellChangeTimes->{{3.559572331546883*^9, 3.559572386365283*^9}}],
+
+Cell[TextData[{
+ "Problem (paraphrased from ",
+ StyleBox["Early Transcendentals",
+  FontVariations->{"Underline"->True}],
+ ", by Stewart; 4.7 #70):\nYou\[CloseCurlyQuote]re looking at a painting that \
+is ",
+ StyleBox["h",
+  FontWeight->"Bold"],
+ " tall and a distance ",
+ StyleBox["d",
+  FontWeight->"Bold"],
+ " above your eyesight. At what distance from the painting ",
+ StyleBox["R",
+  FontWeight->"Bold"],
+ " do you stand in order to maximize the painting\[CloseCurlyQuote]s angle in \
+your scope of vision?"
+}], "Subsubtitle",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.5595724004364834`*^9, 3.559572485518883*^9}, {
+  3.559572530571683*^9, 3.5595726573528833`*^9}, {3.559572703965683*^9, 
+  3.5595727383480835`*^9}}],
+
+Cell[TextData[{
+ "Think of it this way: when you are super close, the painting\
+\[CloseCurlyQuote]s angle in your scope of vision is zero because you\
+\[CloseCurlyQuote]re looking up at it so steeply! But as you get farther and \
+farther away from the painting, this angle approaches zero because the \
+painting takes less and less of your total scope of vision. There is a \
+distance ",
+ StyleBox["R",
+  FontWeight->"Bold"],
+ " you can stand to optimize your angle of vision, and it\[CloseCurlyQuote]s \
+given by the following evaluation."
+}], "Subsubtitle",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.559572839155283*^9, 3.5595728644428835`*^9}, {
+  3.559573159828883*^9, 3.5595731929476833`*^9}, {3.5595732328524833`*^9, 
+  3.5595732492792835`*^9}, {3.5595738483816833`*^9, 3.5595738847608833`*^9}, {
+  3.5595739498908834`*^9, 3.5595739707636833`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Row", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Text", "[", 
+     RowBox[{"Style", "[", 
+      RowBox[{"\"\<R\>\"", ",", "12", ",", "Bold"}], "]"}], "]"}], ",", 
+    RowBox[{"Style", "[", 
+     RowBox[{"\"\< = \>\"", ",", "Bold"}], "]"}], ",", 
+    RowBox[{"Style", "[", 
+     RowBox[{
+      RowBox[{"StandardForm", "[", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"d", 
+         RowBox[{"(", 
+          RowBox[{"h", "+", "d"}], ")"}]}], "]"}], "]"}], ",", "13", ",", 
+      "Bold"}], "]"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5595742519224834`*^9, 3.5595742756344833`*^9}, {
+  3.559574315820083*^9, 3.559574318877683*^9}, {3.5596741906251707`*^9, 
+  3.559674207835971*^9}, {3.559712011350078*^9, 3.559712135640878*^9}, {
+  3.5597429918934*^9, 3.5597429927384*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{InterpretationBox[
+    Cell[
+     BoxData[
+      StyleBox[
+      "\"R\"", StripOnInput -> False, FontSize -> 12, FontWeight -> Bold]], 
+     "Text", "TR"], 
+    Text[
+     Style["R", 12, Bold]]],StyleBox[
+   "\" = \"", StripOnInput -> False, FontWeight -> Bold],StyleBox[
+    TagBox[
+     FormBox[
+      SqrtBox[
+       RowBox[{"d", " ", 
+         RowBox[{"(", 
+           RowBox[{"d", "+", "h"}], ")"}]}]], StandardForm], StandardForm, 
+     Editable -> True], StripOnInput -> False, FontSize -> 13, FontWeight -> 
+    Bold]},
+  "Row",
+  DisplayFunction->(
+   RowBox[{#, "\[InvisibleSpace]", #2, "\[InvisibleSpace]", #3}]& ),
+  InterpretationFunction->(RowBox[{"Row", "[", 
+     RowBox[{"{", 
+       RowBox[{#, ",", #2, ",", #3}], "}"}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.559574254480883*^9, 3.5595742766484833`*^9}, 
+   3.5595743196888833`*^9, {3.5596741954299707`*^9, 3.5596742160259705`*^9}, {
+   3.559712012832078*^9, 3.5597121362648783`*^9}, 3.5597429935774*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Column", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"big", " ", "green", " ", "text"}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{"\"\<             At Maximum Angle =)\>\"", ",", 
+        RowBox[{"projectsize", "/", "12"}], ",", "Bold", ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Abs", "[", 
+            RowBox[{"R", "-", 
+             RowBox[{"Sqrt", "[", 
+              RowBox[{"d", 
+               RowBox[{"(", 
+                RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}], "]"}], "<", 
+           "0.2"}], ",", 
+          RowBox[{"Darker", "[", 
+           RowBox[{"Green", ",", "0.4"}], "]"}], ",", "White"}], "]"}]}], 
+       "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Row", "[", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Graphics", "[", 
+          RowBox[{
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"painting", " ", "setup"}], "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"Red", ",", 
+               RowBox[{"Thickness", "[", "0.02", "]"}], ",", 
+               RowBox[{"Line", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "d"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"h", "+", "d"}]}], "}"}]}], "}"}], "]"}]}], "}"}],
+              ",", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{"margin", " ", "of", " ", "error"}], "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Abs", "[", 
+                   RowBox[{"R", "-", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"d", 
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}], "]"}], "<", 
+                  "0.2"}], ",", 
+                 RowBox[{"Darker", "[", 
+                  RowBox[{"Green", ",", "0.4"}], "]"}], ",", "Black"}], "]"}],
+                ",", 
+               RowBox[{"Thickness", "[", "0.01", "]"}], ",", 
+               RowBox[{"Line", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"-", "R"}], ",", "0"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "d"}], "}"}]}], "}"}], "]"}]}], "}"}], 
+             ",", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Abs", "[", 
+                   RowBox[{"R", "-", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"d", 
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}], "]"}], "<", 
+                  "0.2"}], ",", 
+                 RowBox[{"Darker", "[", 
+                  RowBox[{"Green", ",", "0.4"}], "]"}], ",", "Black"}], "]"}],
+                ",", 
+               RowBox[{"Thickness", "[", "0.01", "]"}], ",", 
+               RowBox[{"Line", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"-", "R"}], ",", "0"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"h", "+", "d"}]}], "}"}]}], "}"}], "]"}]}], "}"}],
+              ",", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"Black", ",", 
+               RowBox[{"Circle", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "R"}], ",", "0"}], "}"}], ",", "1.5", ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"d", "/", "R"}], "]"}], ",", 
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"d", "+", "h"}], ")"}], "/", "R"}], "]"}]}], 
+                  "}"}]}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"Black", ",", 
+               RowBox[{"Text", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<d\>\"", ",", "Bold", ",", "16"}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", 
+                   RowBox[{"d", "/", "2"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"Black", ",", 
+               RowBox[{"Text", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<h\>\"", ",", "Bold", ",", "16"}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", 
+                   RowBox[{"d", "+", 
+                    RowBox[{"h", "/", "2"}]}]}], "}"}]}], "]"}]}], "}"}], ",",
+              "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"Black", ",", 
+               RowBox[{"Text", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<R\>\"", ",", "Bold", ",", "16"}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"-", "R"}], "/", "2"}], ",", 
+                   RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"Black", ",", 
+               RowBox[{"Text", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<\[Theta]\>\"", ",", "Bold", ",", "16"}], "]"}],
+                  ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "R"}], ",", "1.5"}], "}"}]}], "]"}]}], "}"}], 
+             ",", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Abs", "[", 
+                   RowBox[{"R", "-", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"d", 
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}], "]"}], "<", 
+                  "0.2"}], ",", 
+                 RowBox[{"Darker", "[", 
+                  RowBox[{"Green", ",", "0.4"}], "]"}], ",", "Black"}], "]"}],
+                ",", 
+               RowBox[{"Text", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<work of art\>\"", ",", "Bold", ",", "16"}], 
+                  "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"6", ",", "12"}], "}"}]}], "]"}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"Purple", ",", 
+               RowBox[{"Arrow", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"6", ",", "11"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"1", ",", 
+                    RowBox[{"d", "+", 
+                    RowBox[{"h", "/", "2"}], "+", "1"}]}], "}"}]}], "}"}], 
+                "]"}]}], "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+           RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "11"}], ",", "11"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "5"}], ",", "15"}], "}"}]}], "}"}]}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", "projectsize"}], ",", 
+           RowBox[{"PlotLabel", "\[Rule]", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<\[Theta] = \>\"", ",", "Bold", ",", "16"}], 
+                "]"}], ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{"d", "/", "R"}], "]"}], "-", 
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"d", "+", "h"}], ")"}], "/", "R"}], "]"}]}], 
+                    ")"}]}], "/", "Degree"}], ")"}], "\"\<\[Degree]\>\""}], 
+                 ",", "Bold", ",", "16"}], "]"}]}], "}"}], "]"}]}]}], "]"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{"Show", "[", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "3", "d", " ", "plot", " ", "of", " ", "optimal", " ", "R"}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Plot3D", "[", 
+            RowBox[{
+             RowBox[{"Sqrt", "[", 
+              RowBox[{"d", 
+               RowBox[{"(", 
+                RowBox[{"d", "+", "h"}], ")"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"d", ",", "0", ",", "dlength"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"h", ",", "0", ",", "hlength"}], "}"}], ",", 
+             RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+             RowBox[{"AxesLabel", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<d\>\"", ",", "Bold", ",", "16"}], "]"}], ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<h\>\"", ",", "Bold", ",", "16"}], "]"}], ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<R\>\"", ",", "Bold", ",", "16"}], "]"}]}], 
+               "}"}]}], ",", 
+             RowBox[{"ViewPoint", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"0.6420172012054944", ",", 
+                RowBox[{"-", "3.1448381393599925`"}], ",", 
+                "0.571357545632195"}], "}"}]}], ",", 
+             RowBox[{"ViewVertical", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"0.", ",", "0.", ",", "1."}], "}"}]}], ",", 
+             RowBox[{"Mesh", "\[Rule]", "True"}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", "projectsize"}], ",", 
+             RowBox[{"PlotLabel", "\[Rule]", 
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<Optimal R = \>\"", ",", "Bold", ",", "16"}], 
+                  "]"}], ",", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{"d", 
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}]}], "]"}], ",", "Bold", ",",
+                    "16"}], "]"}]}], "}"}], "]"}]}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"R", "-", 
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{"d", 
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}], "]"}], "<", 
+                 "0.2"}], ",", 
+                RowBox[{"Darker", "[", 
+                 RowBox[{"Green", ",", "0.1"}], "]"}]}], "]"}]}]}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Graphics3D", "[", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Red", ",", 
+              RowBox[{"Thickness", "[", "0.02", "]"}], ",", 
+              RowBox[{"Line", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"d", ",", "h", ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"d", ",", "h", ",", "150"}], "}"}]}], "}"}], 
+               "]"}]}], "}"}], "\[IndentingNewLine]", "]"}]}], 
+          "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], "]"}],
+       ",", "\[IndentingNewLine]", 
+      RowBox[{"Row", "[", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Show", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Plot", "[", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"formula", " ", "for", " ", "\[Theta]"}], "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"ArcTan", "[", 
+                  RowBox[{"d", "/", "R"}], "]"}], "-", 
+                 RowBox[{"ArcTan", "[", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"d", "+", "h"}], ")"}], "/", "R"}], "]"}]}], 
+                ")"}]}], "/", "Degree"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"R", ",", "0.001", ",", "Rlength"}], "}"}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", "projectsize"}], ",", 
+             RowBox[{"AxesLabel", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<R\>\"", ",", "Bold", ",", "16"}], "]"}], ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                 "\"\<\[Theta] (Degrees)\>\"", ",", "Bold", ",", "16"}], 
+                 "]"}]}], "}"}]}], ",", 
+             RowBox[{"PlotLabel", "->", 
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                  "\"\<Maximum \[Theta] = \>\"", ",", "Bold", ",", "16"}], 
+                  "]"}], ",", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{"d", "/", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"d", 
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}], "]"}], "-", 
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"d", "+", "h"}], ")"}], "/", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"d", 
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}], "]"}]}], 
+                    ")"}]}], "/", "Degree"}], ")"}], "\"\<\[Degree]\>\""}], 
+                   ",", "Bold", ",", "16"}], "]"}]}], "}"}], "]"}]}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], ",", "Rlength"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "10"}], ",", "70"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"R", "-", 
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{"d", 
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}], "]"}], "<", 
+                 "0.2"}], ",", 
+                RowBox[{"Darker", "[", 
+                 RowBox[{"Green", ",", "0.4"}], "]"}], ",", "Black"}], 
+               "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"PointSize", "[", "0.04", "]"}], ",", 
+                RowBox[{"Point", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"R", ",", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{"d", "/", "R"}], "]"}], "-", 
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"d", "+", "h"}], ")"}], "/", "R"}], "]"}]}], 
+                    ")"}]}], "/", "Degree"}], ")"}]}], "}"}], "]"}]}], "}"}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{"Purple", ",", 
+                RowBox[{"Arrow", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"R", ",", "0"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"R", ",", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{"d", "/", "R"}], "]"}], "-", 
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"d", "+", "h"}], ")"}], "/", "R"}], "]"}]}], 
+                    ")"}]}], "/", "Degree"}], ")"}]}], "}"}]}], "}"}], 
+                 "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{"Purple", ",", 
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"R", "-", 
+                    RowBox[{"Rlength", "/", "4"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{"d", "/", "R"}], "]"}], "-", 
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"d", "+", "h"}], ")"}], "/", "R"}], "]"}]}], 
+                    ")"}]}], "/", "Degree"}], ")"}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"Rlength", "/", "4"}], ")"}], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}]}], ")"}], "/", 
+                    "Degree"}], ")"}]}]}]}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"R", ",", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{"d", "/", "R"}], "]"}], "-", 
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"d", "+", "h"}], ")"}], "/", "R"}], "]"}]}], 
+                    ")"}]}], "/", "Degree"}], ")"}]}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"R", "+", 
+                    RowBox[{"Rlength", "/", "4"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{"d", "/", "R"}], "]"}], "-", 
+                    RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"d", "+", "h"}], ")"}], "/", "R"}], "]"}]}], 
+                    ")"}]}], "/", "Degree"}], ")"}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"Rlength", "/", "4"}], ")"}], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}]}], ")"}], "/", 
+                    "Degree"}], ")"}]}]}]}], "}"}]}], "}"}], "]"}]}], "}"}]}],
+              "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", 
+          "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Show", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Plot", "[", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+             "derivative", " ", "of", " ", "\[Theta]", " ", "with", " ", 
+              "respect", " ", "to", " ", "R"}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"d", "/", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"d", "^", "2"}], "+", 
+                   RowBox[{"R", "^", "2"}]}], ")"}]}], "-", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"h", "+", "d"}], ")"}], "/", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "^", "2"}], "+", 
+                   RowBox[{"R", "^", "2"}]}], ")"}]}]}], ")"}], "/", 
+              "Degree"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"R", ",", "0.001", ",", "Rlength"}], "}"}], 
+             "\[IndentingNewLine]", ",", 
+             RowBox[{"ImageSize", "\[Rule]", "projectsize"}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], ",", "Rlength"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "10"}], ",", "40"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+             RowBox[{"AxesLabel", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<R\>\"", ",", "Bold", ",", "16"}], "]"}], ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<d\[Theta]/dR\>\"", ",", "Bold", ",", "16"}], 
+                 "]"}]}], "}"}]}], ",", 
+             RowBox[{"PlotLabel", "\[Rule]", 
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                  "\"\<Derivative of \[Theta] = \>\"", ",", "Bold", ",", 
+                   "16"}], "]"}], ",", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}]}], ")"}], "/", 
+                    "Degree"}], ")"}], ",", "Bold", ",", "16"}], "]"}]}], 
+                "}"}], "]"}]}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"R", "-", 
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{"d", 
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}], "]"}], "<", 
+                 "0.2"}], ",", 
+                RowBox[{"Darker", "[", 
+                 RowBox[{"Green", ",", "0.4"}], "]"}], ",", "Black"}], 
+               "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"PointSize", "[", "0.04", "]"}], ",", 
+                RowBox[{"Point", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"R", ",", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}]}], ")"}], "/", 
+                    "Degree"}]}], "}"}], "]"}]}], "}"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{"Purple", ",", 
+                RowBox[{"Arrow", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"R", ",", "0"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"R", ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"d", "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"h", "+", "d"}], ")"}], "^", "2"}], "+", 
+                    RowBox[{"R", "^", "2"}]}], ")"}]}]}], ")"}], "/", 
+                    "Degree"}]}], "}"}]}], "}"}], "]"}]}], "}"}]}], 
+             "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", 
+          "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
+     "\[IndentingNewLine]", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "all", " ", "of", " ", "our", " ", "manipulated", " ", "variables"}], 
+     ",", " ", 
+     RowBox[{"and", " ", "our", " ", "button"}]}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"projectsize", ",", "300", ",", "\"\<Project Size\>\""}], "}"}],
+      ",", "100", ",", "500", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d", ",", "2.5"}], "}"}], ",", "0.001", ",", "dlength", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"h", ",", "5"}], "}"}], ",", "0", ",", "hlength", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"R", ",", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"2.5", 
+         RowBox[{"(", "7.5", ")"}]}], "]"}]}], "}"}], ",", "0.001", ",", 
+     "Rlength", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Rlength", ",", "9", ",", "\"\<Domain of R\>\""}], "}"}], ",", 
+     "9", ",", "120", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Bottom"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"hlength", ",", "10", ",", "\"\<Range of h\>\""}], "}"}], ",", 
+     "10", ",", "50", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Bottom"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"dlength", ",", "5", ",", "\"\<Range of d\>\""}], "}"}], ",", 
+     "5", ",", "25", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Bottom"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Button", "[", 
+    RowBox[{"\"\<find the optimal\>\"", ",", 
+     RowBox[{"R", "=", 
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"d", 
+        RowBox[{"(", 
+         RowBox[{"h", "+", "d"}], ")"}]}], "]"}]}]}], "]"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.559574341965683*^9, 3.559574409201683*^9}, {
+   3.559574471118083*^9, 3.559574491320083*^9}, {3.559674231663571*^9, 
+   3.559674238574371*^9}, {3.559674623311571*^9, 3.559674640563571*^9}, {
+   3.559674750565171*^9, 3.5596747511423707`*^9}, {3.559674908015171*^9, 
+   3.5596749244815707`*^9}, {3.559674967347971*^9, 3.559674972293171*^9}, {
+   3.5596750141875706`*^9, 3.559675023226371*^9}, {3.559675058628371*^9, 
+   3.559675092352771*^9}, {3.5596751704859705`*^9, 3.5596752097107706`*^9}, {
+   3.5596752415503707`*^9, 3.5596752984775705`*^9}, {3.559675338134771*^9, 
+   3.559675369403571*^9}, 3.559676292893171*^9, {3.5596764489087706`*^9, 
+   3.559676518218371*^9}, {3.559676563013971*^9, 3.559676590318771*^9}, {
+   3.559676626447971*^9, 3.5596767114099708`*^9}, {3.559676744056771*^9, 
+   3.5596767507399707`*^9}, {3.5596770794417706`*^9, 3.559677179687771*^9}, 
+   3.559698883851878*^9, {3.559698927753478*^9, 3.559698979018678*^9}, {
+   3.559699706780278*^9, 3.559700117701278*^9}, {3.559700154737278*^9, 
+   3.559700170610278*^9}, {3.559700201372278*^9, 3.559700235534278*^9}, {
+   3.559700292327278*^9, 3.5597002956542783`*^9}, {3.5597003559412785`*^9, 
+   3.559700406122278*^9}, {3.5597004827202783`*^9, 3.5597005260292783`*^9}, {
+   3.5597005642402782`*^9, 3.5597006119372783`*^9}, {3.5597006452382784`*^9, 
+   3.559700657015278*^9}, {3.5597007465002785`*^9, 3.5597007613782783`*^9}, {
+   3.559700892546278*^9, 3.559700896997278*^9}, {3.5597009292922783`*^9, 
+   3.559701065787278*^9}, {3.559701097767278*^9, 3.559701209612278*^9}, {
+   3.5597013320782785`*^9, 3.5597013864832783`*^9}, {3.5597014594152784`*^9, 
+   3.5597014850072784`*^9}, {3.559701559097278*^9, 3.559701565464278*^9}, {
+   3.559701598096278*^9, 3.559701684556278*^9}, {3.559701770322278*^9, 
+   3.5597017852102785`*^9}, {3.559702036347278*^9, 3.5597020628632784`*^9}, {
+   3.5597021770622783`*^9, 3.5597022394202785`*^9}, {3.5597022733022785`*^9, 
+   3.559702336965278*^9}, {3.559702367275278*^9, 3.559702375629278*^9}, {
+   3.5597024609302783`*^9, 3.559702461374278*^9}, {3.559702572275278*^9, 
+   3.5597025756512785`*^9}, {3.559702619300278*^9, 3.559702646829278*^9}, {
+   3.5597035297462783`*^9, 3.559703560652278*^9}, {3.559703662963878*^9, 
+   3.559703664263878*^9}, {3.5597037331328783`*^9, 3.559703739206878*^9}, {
+   3.559704084187878*^9, 3.559704124135878*^9}, {3.559704208161878*^9, 
+   3.5597042823108783`*^9}, {3.5597043740318785`*^9, 3.559704414202878*^9}, {
+   3.5597045595578785`*^9, 3.5597046040578785`*^9}, {3.5597050472058783`*^9, 
+   3.559705121952878*^9}, {3.5597051523948784`*^9, 3.5597052055578785`*^9}, {
+   3.559705257075878*^9, 3.559705272190878*^9}, {3.559705532719878*^9, 
+   3.5597055388618784`*^9}, {3.5597055924748783`*^9, 3.559705685686878*^9}, {
+   3.559705766824878*^9, 3.559705774266878*^9}, {3.559705814577878*^9, 
+   3.559705939794878*^9}, {3.559706254944878*^9, 3.559706288136878*^9}, {
+   3.5597079492972784`*^9, 3.559707975240078*^9}, {3.559708057904478*^9, 
+   3.559708083488478*^9}, {3.559708142971278*^9, 3.559708148899278*^9}, {
+   3.5597082286932783`*^9, 3.559708339203678*^9}, {3.559708453442478*^9, 
+   3.559708499977278*^9}, {3.559708607554878*^9, 3.5597087162244782`*^9}, {
+   3.559708862786478*^9, 3.5597088644868784`*^9}, {3.559711316169278*^9, 
+   3.559711430567278*^9}, {3.5597123692876782`*^9, 3.559712513912878*^9}, {
+   3.559712549633278*^9, 3.559712678014078*^9}, 3.559712718322078*^9, {
+   3.5597127960008783`*^9, 3.559712797155278*^9}, {3.559712851900878*^9, 
+   3.559712862321678*^9}, {3.5597129128696785`*^9, 3.5597129154124784`*^9}, {
+   3.5597131332852783`*^9, 3.559713304230878*^9}, {3.5597134356020784`*^9, 
+   3.5597134500788784`*^9}, {3.559713803705678*^9, 3.5597138964004784`*^9}, {
+   3.559714169639678*^9, 3.559714196426878*^9}, {3.559714228001278*^9, 
+   3.559714246456878*^9}, {3.5597142821912785`*^9, 3.559714305244478*^9}, {
+   3.559714437367278*^9, 3.5597144962080784`*^9}, {3.559714556741278*^9, 
+   3.5597146346336784`*^9}, {3.559714671696478*^9, 3.5597146996384783`*^9}, {
+   3.559714755646478*^9, 3.559714775294078*^9}, {3.559714878028478*^9, 
+   3.559714917272478*^9}, {3.559715062134878*^9, 3.5597151615184784`*^9}, {
+   3.5597152667848783`*^9, 3.559715267455678*^9}, 3.559715314441678*^9, {
+   3.5597153510980783`*^9, 3.559715352205678*^9}, {3.559715387987278*^9, 
+   3.559715439715278*^9}, {3.559715558290078*^9, 3.559715558914078*^9}, {
+   3.559715649230078*^9, 3.559715668120878*^9}, {3.5597157091216784`*^9, 
+   3.559715783839278*^9}, 3.559715819583278*^9, {3.559715852081278*^9, 
+   3.5597158978020782`*^9}, {3.559716026924878*^9, 3.559716084367678*^9}, {
+   3.559716325566078*^9, 3.5597164524560785`*^9}, {3.5597166142256784`*^9, 
+   3.559716627882078*^9}, {3.559716692057678*^9, 3.5597167337708783`*^9}, {
+   3.559716815764478*^9, 3.5597168687692785`*^9}, {3.559716947211278*^9, 
+   3.559717002068078*^9}, {3.559717055721278*^9, 3.559717060174878*^9}, {
+   3.559717122775278*^9, 3.559717132494078*^9}, {3.5597175914440784`*^9, 
+   3.559717601572878*^9}, {3.559718585790478*^9, 3.5597185881616783`*^9}, {
+   3.5597186363656783`*^9, 3.559718638627678*^9}, {3.5597409981664*^9, 
+   3.5597411504964*^9}, {3.5597411952454*^9, 3.5597413038784*^9}, {
+   3.5597413664434*^9, 3.5597413685304003`*^9}, {3.5597414002674*^9, 
+   3.5597414476874*^9}, {3.5597415164574003`*^9, 3.5597415403784*^9}, {
+   3.5597416554274*^9, 3.5597416646434*^9}, {3.5597417112774*^9, 
+   3.5597417174983997`*^9}, {3.5597418085254*^9, 3.5597419068304*^9}, {
+   3.5597419393854*^9, 3.5597420429624*^9}, {3.5597421113873997`*^9, 
+   3.5597421354474*^9}, {3.5597423206684*^9, 3.5597423344533997`*^9}, {
+   3.5597424928873997`*^9, 3.5597425266823997`*^9}, {3.5597428110354*^9, 
+   3.5597428128024*^9}, {3.5597428445584*^9, 3.5597428912883997`*^9}, {
+   3.5597430988943996`*^9, 3.5597431536924*^9}, {3.5597434371174*^9, 
+   3.5597436825014*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`d$$ = 2.5, $CellContext`dlength$$ = 
+    5, $CellContext`h$$ = 5, $CellContext`hlength$$ = 
+    10, $CellContext`projectsize$$ = 300, $CellContext`R$$ = 
+    4.330127018922194, $CellContext`Rlength$$ = 9, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`projectsize$$], 300, "Project Size"}, 100, 500}, {{
+       Hold[$CellContext`d$$], 2.5}, 0.001, 
+      Dynamic[$CellContext`dlength$$]}, {{
+       Hold[$CellContext`h$$], 5}, 0, 
+      Dynamic[$CellContext`hlength$$]}, {{
+       Hold[$CellContext`R$$], 4.330127018922194}, 0.001, 
+      Dynamic[$CellContext`Rlength$$]}, {{
+       Hold[$CellContext`Rlength$$], 9, "Domain of R"}, 9, 120}, {{
+       Hold[$CellContext`hlength$$], 10, "Range of h"}, 10, 50}, {{
+       Hold[$CellContext`dlength$$], 5, "Range of d"}, 5, 25}, {
+      Hold[
+       Button[
+       "find the optimal", $CellContext`R$$ = 
+        Sqrt[$CellContext`d$$ ($CellContext`h$$ + $CellContext`d$$)]]], 
+      Manipulate`Dump`ThisIsNotAControl}}, Typeset`size$$ = {
+    600., {277.134033203125, 282.865966796875}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`projectsize$27022$$ = 0, $CellContext`d$27023$$ = 
+    0, $CellContext`h$27024$$ = 0, $CellContext`R$27025$$ = 
+    0, $CellContext`Rlength$27026$$ = 0, $CellContext`hlength$27027$$ = 
+    0, $CellContext`dlength$27028$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`d$$ = 2.5, $CellContext`dlength$$ = 
+        5, $CellContext`h$$ = 5, $CellContext`hlength$$ = 
+        10, $CellContext`projectsize$$ = 300, $CellContext`R$$ = 
+        4.330127018922194, $CellContext`Rlength$$ = 9}, "ControllerVariables" :> {
+        Hold[$CellContext`projectsize$$, $CellContext`projectsize$27022$$, 0], 
+        Hold[$CellContext`d$$, $CellContext`d$27023$$, 0], 
+        Hold[$CellContext`h$$, $CellContext`h$27024$$, 0], 
+        Hold[$CellContext`R$$, $CellContext`R$27025$$, 0], 
+        Hold[$CellContext`Rlength$$, $CellContext`Rlength$27026$$, 0], 
+        Hold[$CellContext`hlength$$, $CellContext`hlength$27027$$, 0], 
+        Hold[$CellContext`dlength$$, $CellContext`dlength$27028$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         Style[
+         "             At Maximum Angle =)", $CellContext`projectsize$$/12, 
+          Bold, 
+          If[
+          Abs[$CellContext`R$$ - 
+             Sqrt[$CellContext`d$$ ($CellContext`h$$ + $CellContext`d$$)]] < 
+           0.2, 
+           Darker[Green, 0.4], White]], 
+         Row[{
+           Graphics[{{Red, 
+              Thickness[0.02], 
+              
+              Line[{{0, $CellContext`d$$}, {
+                0, $CellContext`h$$ + $CellContext`d$$}}]}, {
+              If[
+              Abs[$CellContext`R$$ - 
+                 Sqrt[$CellContext`d$$ ($CellContext`h$$ + \
+$CellContext`d$$)]] < 0.2, 
+               Darker[Green, 0.4], Black], 
+              Thickness[0.01], 
+              Line[{{-$CellContext`R$$, 0}, {0, $CellContext`d$$}}]}, {
+              If[
+              Abs[$CellContext`R$$ - 
+                 Sqrt[$CellContext`d$$ ($CellContext`h$$ + \
+$CellContext`d$$)]] < 0.2, 
+               Darker[Green, 0.4], Black], 
+              Thickness[0.01], 
+              
+              Line[{{-$CellContext`R$$, 0}, {
+                0, $CellContext`h$$ + $CellContext`d$$}}]}, {Black, 
+              Circle[{-$CellContext`R$$, 0}, 1.5, {
+                ArcTan[$CellContext`d$$/$CellContext`R$$], 
+                
+                ArcTan[($CellContext`d$$ + \
+$CellContext`h$$)/$CellContext`R$$]}]}, {Black, 
+              Text[
+               Style["d", Bold, 16], {1, $CellContext`d$$/2}]}, {Black, 
+              Text[
+               Style["h", Bold, 16], {
+               1, $CellContext`d$$ + $CellContext`h$$/2}]}, {Black, 
+              Text[
+               Style["R", Bold, 16], {(-$CellContext`R$$)/2, -1}]}, {Black, 
+              Text[
+               Style["\[Theta]", Bold, 16], {-$CellContext`R$$, 1.5}]}, {
+              If[
+              Abs[$CellContext`R$$ - 
+                 Sqrt[$CellContext`d$$ ($CellContext`h$$ + \
+$CellContext`d$$)]] < 0.2, 
+               Darker[Green, 0.4], Black], 
+              Text[
+               Style["work of art", Bold, 16], {6, 12}]}, {Purple, 
+              
+              Arrow[{{6, 11}, {
+                1, $CellContext`d$$ + $CellContext`h$$/2 + 1}}]}}, Axes -> 
+            True, PlotRange -> {{-11, 11}, {-5, 15}}, 
+            ImageSize -> $CellContext`projectsize$$, PlotLabel -> Row[{
+               Style["\[Theta] = ", Bold, 16], 
+               
+               Style[((-(ArcTan[$CellContext`d$$/$CellContext`R$$] - 
+                   ArcTan[($CellContext`d$$ + \
+$CellContext`h$$)/$CellContext`R$$]))/Degree) "\[Degree]", Bold, 16]}]], 
+           Show[
+            Plot3D[
+             
+             Sqrt[$CellContext`d$$ ($CellContext`d$$ + $CellContext`h$$)], \
+{$CellContext`d$$, 0, $CellContext`dlength$$}, {$CellContext`h$$, 
+              0, $CellContext`hlength$$}, AspectRatio -> Automatic, AxesLabel -> {
+               Style["d", Bold, 16], 
+               Style["h", Bold, 16], 
+               Style["R", Bold, 16]}, 
+             ViewPoint -> {0.6420172012054944, -3.1448381393599925`, 
+              0.571357545632195}, ViewVertical -> {0., 0., 1.}, Mesh -> True, 
+             ImageSize -> $CellContext`projectsize$$, PlotLabel -> Row[{
+                Style["Optimal R = ", Bold, 16], 
+                Style[
+                 Sqrt[$CellContext`d$$ ($CellContext`h$$ + $CellContext`d$$)],
+                  Bold, 16]}], PlotStyle -> 
+             If[Abs[$CellContext`R$$ - 
+                 Sqrt[$CellContext`d$$ ($CellContext`h$$ + \
+$CellContext`d$$)]] < 0.2, 
+               Darker[Green, 0.1]]], 
+            Graphics3D[{Red, 
+              Thickness[0.02], 
+              
+              Line[{{$CellContext`d$$, $CellContext`h$$, 
+                 0}, {$CellContext`d$$, $CellContext`h$$, 150}}]}]]}], 
+         Row[{
+           Show[
+            
+            Plot[(-(ArcTan[$CellContext`d$$/$CellContext`R$$] - 
+               ArcTan[($CellContext`d$$ + \
+$CellContext`h$$)/$CellContext`R$$]))/
+             Degree, {$CellContext`R$$, 0.001, $CellContext`Rlength$$}, 
+             ImageSize -> $CellContext`projectsize$$, AxesLabel -> {
+               Style["R", Bold, 16], 
+               Style["\[Theta] (Degrees)", Bold, 16]}, PlotLabel -> Row[{
+                Style["Maximum \[Theta] = ", Bold, 16], 
+                
+                Style[((-(
+                    ArcTan[$CellContext`d$$/
+                    Sqrt[$CellContext`d$$ ($CellContext`h$$ + \
+$CellContext`d$$)]] - 
+                    ArcTan[($CellContext`d$$ + $CellContext`h$$)/
+                    Sqrt[$CellContext`d$$ ($CellContext`h$$ + \
+$CellContext`d$$)]]))/Degree) "\[Degree]", Bold, 16]}], 
+             PlotRange -> {{-1, $CellContext`Rlength$$}, {-10, 70}}, Axes -> 
+             True, PlotStyle -> 
+             If[Abs[$CellContext`R$$ - 
+                 Sqrt[$CellContext`d$$ ($CellContext`h$$ + \
+$CellContext`d$$)]] < 0.2, 
+               Darker[Green, 0.4], Black]], 
+            Graphics[{{Red, 
+               PointSize[0.04], 
+               
+               Point[{$CellContext`R$$, (-(
+                   ArcTan[$CellContext`d$$/$CellContext`R$$] - 
+                   ArcTan[($CellContext`d$$ + \
+$CellContext`h$$)/$CellContext`R$$]))/Degree}]}, {Purple, 
+               
+               Arrow[{{$CellContext`R$$, 
+                  0}, {$CellContext`R$$, (-(
+                    ArcTan[$CellContext`d$$/$CellContext`R$$] - 
+                    ArcTan[($CellContext`d$$ + \
+$CellContext`h$$)/$CellContext`R$$]))/Degree}}]}, {Purple, 
+               
+               Line[{{$CellContext`R$$ - $CellContext`Rlength$$/
+                  4, (-(ArcTan[$CellContext`d$$/$CellContext`R$$] - 
+                    ArcTan[($CellContext`d$$ + \
+$CellContext`h$$)/$CellContext`R$$]))/Degree - ($CellContext`Rlength$$/
+                   4) (($CellContext`d$$/($CellContext`d$$^2 + \
+$CellContext`R$$^2) - ($CellContext`h$$ + \
+$CellContext`d$$)/(($CellContext`h$$ + $CellContext`d$$)^2 + \
+$CellContext`R$$^2))/
+                   Degree)}, {$CellContext`R$$, (-(
+                    ArcTan[$CellContext`d$$/$CellContext`R$$] - 
+                    ArcTan[($CellContext`d$$ + \
+$CellContext`h$$)/$CellContext`R$$]))/
+                  Degree}, {$CellContext`R$$ + $CellContext`Rlength$$/
+                   4, (-(ArcTan[$CellContext`d$$/$CellContext`R$$] - 
+                    ArcTan[($CellContext`d$$ + \
+$CellContext`h$$)/$CellContext`R$$]))/
+                   Degree + ($CellContext`Rlength$$/
+                    4) (($CellContext`d$$/($CellContext`d$$^2 + \
+$CellContext`R$$^2) - ($CellContext`h$$ + \
+$CellContext`d$$)/(($CellContext`h$$ + $CellContext`d$$)^2 + \
+$CellContext`R$$^2))/Degree)}}]}}]], 
+           Show[
+            
+            Plot[($CellContext`d$$/($CellContext`d$$^2 + $CellContext`R$$^2) - \
+($CellContext`h$$ + $CellContext`d$$)/(($CellContext`h$$ + \
+$CellContext`d$$)^2 + $CellContext`R$$^2))/
+             Degree, {$CellContext`R$$, 0.001, $CellContext`Rlength$$}, 
+             ImageSize -> $CellContext`projectsize$$, 
+             PlotRange -> {{-1, $CellContext`Rlength$$}, {-10, 40}}, Axes -> 
+             True, AxesLabel -> {
+               Style["R", Bold, 16], 
+               Style["d\[Theta]/dR", Bold, 16]}, PlotLabel -> Row[{
+                Style["Derivative of \[Theta] = ", Bold, 16], 
+                
+                Style[($CellContext`d$$/($CellContext`d$$^2 + \
+$CellContext`R$$^2) - ($CellContext`h$$ + \
+$CellContext`d$$)/(($CellContext`h$$ + $CellContext`d$$)^2 + \
+$CellContext`R$$^2))/Degree, Bold, 16]}], PlotStyle -> 
+             If[Abs[$CellContext`R$$ - 
+                 Sqrt[$CellContext`d$$ ($CellContext`h$$ + \
+$CellContext`d$$)]] < 0.2, 
+               Darker[Green, 0.4], Black]], 
+            Graphics[{{Red, 
+               PointSize[0.04], 
+               
+               Point[{$CellContext`R$$, ($CellContext`d$$/($CellContext`d$$^2 + \
+$CellContext`R$$^2) - ($CellContext`h$$ + \
+$CellContext`d$$)/(($CellContext`h$$ + $CellContext`d$$)^2 + \
+$CellContext`R$$^2))/Degree}]}, {Purple, 
+               
+               Arrow[{{$CellContext`R$$, 
+                  0}, {$CellContext`R$$, \
+($CellContext`d$$/($CellContext`d$$^2 + $CellContext`R$$^2) - \
+($CellContext`h$$ + $CellContext`d$$)/(($CellContext`h$$ + \
+$CellContext`d$$)^2 + $CellContext`R$$^2))/Degree}}]}}]]}]}], 
+      "Specifications" :> {{{$CellContext`projectsize$$, 300, "Project Size"},
+          100, 500, ControlPlacement -> Top}, {{$CellContext`d$$, 2.5}, 0.001, 
+         Dynamic[$CellContext`dlength$$], ControlPlacement -> 
+         Top}, {{$CellContext`h$$, 5}, 0, 
+         Dynamic[$CellContext`hlength$$], ControlPlacement -> 
+         Top}, {{$CellContext`R$$, 4.330127018922194}, 0.001, 
+         Dynamic[$CellContext`Rlength$$], ControlPlacement -> 
+         Top}, {{$CellContext`Rlength$$, 9, "Domain of R"}, 9, 120, 
+         ControlPlacement -> 
+         Bottom}, {{$CellContext`hlength$$, 10, "Range of h"}, 10, 50, 
+         ControlPlacement -> 
+         Bottom}, {{$CellContext`dlength$$, 5, "Range of d"}, 5, 25, 
+         ControlPlacement -> Bottom}, 
+        Button[
+        "find the optimal", $CellContext`R$$ = 
+         Sqrt[$CellContext`d$$ ($CellContext`h$$ + $CellContext`d$$)]]}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{645., {425., 430.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.695242529701974*^9}]
+}, Open  ]]
+}, Closed]]
+},
+WindowSize->{1007, 647},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 187, 4, 125, "Title"],
+Cell[769, 28, 731, 20, 79, "Subsubtitle"],
+Cell[1503, 50, 864, 16, 79, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[2392, 70, 809, 20, 32, "Input"],
+Cell[3204, 92, 1006, 26, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4247, 123, 36949, 839, 1807, "Input"],
+Cell[41199, 964, 12408, 257, 906, "Output"]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+
